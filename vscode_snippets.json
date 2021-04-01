@@ -1,0 +1,49 @@
+"if file exists": {
+		"prefix": "ifFileExists",
+		"body": "if _, err := os.Stat(${1:path}); !os.IsNotExist(err) {\n\t$0\n}",
+		"description": "check if file exists"
+	},
+	"string to int": {
+		"prefix": "atoi",
+		"body": "i, err := strconv.Atoi(${1:str})",
+		"description": "convert string to int"
+	},
+	"int to string": {
+		"prefix": "itoa",
+		"body": "s := strconv.Itoa(${1:int})",
+		"description": "convert int to string"
+	},
+	"now": {
+		"prefix": "now",
+		"body": "now := time.Now().UTC()",
+		"description": "get current time"
+	},
+	// slice
+	"make a slice": {
+		"prefix": "slice",
+		"body": "slice := make([]int, 0, ${1:int})",
+		"description": "init a slice"
+	},
+	// maps
+	"make a map": {
+		"prefix": "mkmap",
+		"body": "m := make(map[string]int, ${1:int})",
+		"description": "init a map"
+	},
+	"if key in map exists": {
+		"prefix": "ifMapKeyExists",
+		"body": "if val, exists := m[key]; exists {\n\t// do something with 'val'\n}",
+		"description": "if a key exists within a map"
+	},
+	// files
+	"file stat": {
+		"prefix": "fstat",
+		"body": [
+			"fi, err := os.Stat(${1:string})",
+			"if err != nil {",
+			"    return err",
+			"}",
+			"size := fi.Size()"
+		],
+		"description": "get fileinfo"
+	},
